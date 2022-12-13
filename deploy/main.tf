@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     aws = {
-      source = "hashicorp/aws"
+      source  = "hashicorp/aws"
       version = "4.46.0"
     }
   }
@@ -12,11 +12,14 @@ provider "aws" {
   region = "eu-central-1"
 }
 
+locals {
+  bucket_name = "blog.danielciucur.com"
+}
 
 resource "aws_s3_bucket" "website_hosting_bucket" {
-  bucket = "s3-website-test.danielciucur.com"
+  bucket = local.bucket_name
 
-  policy = templatefile("policy.json", { bucket = "danielciucur.com" })
+  policy = templatefile("policy.json", { bucket = local.bucket_name })
 }
 
 
