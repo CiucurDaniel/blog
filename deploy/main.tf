@@ -18,8 +18,6 @@ locals {
 
 resource "aws_s3_bucket" "website_hosting_bucket" {
   bucket = local.bucket_name
-
-  policy = templatefile("policy.json", { bucket = local.bucket_name })
 }
 
 
@@ -34,6 +32,12 @@ resource "aws_s3_bucket_website_configuration" "example" {
     key = "error.html"
   }
 
+}
+
+
+resource "aws_s3_bucket_policy" "allow_access_to_bucket" {
+  bucket = aws_s3_bucket.website_hosting_bucket.id
+  policy = templatefile("policy.json", { bucket = local.bucket_name })
 }
 
 
