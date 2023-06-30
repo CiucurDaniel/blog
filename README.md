@@ -19,7 +19,6 @@ TODO: Create devcontainer for future ease of use.
 hugo new site blog
 
 # Add a theme (you can either clone it under themes or add it as a submodule)
-
 cd blog
 git clone https://github.com/hugo-sid/hugo-blog-awesome.git themes/hugo-blog-awesome
 git submodule add  https://github.com/hugo-sid/hugo-blog-awesome.git themes/hugo-blog-awesome
