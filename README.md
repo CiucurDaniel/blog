@@ -1,7 +1,6 @@
 # My blog
 
-Hello everyone, this is my personal blog.
-
+Personal blog.
 
 # Requirements
 
